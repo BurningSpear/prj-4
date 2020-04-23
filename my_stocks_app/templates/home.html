@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% if stockItem %}
+	{{ stockItem }}
+{% endif %}
+
+{% if api %}
+	{% if api == "Error" %}
+		There was a problem with your stockItem symbol, please try again...
+	{% else %}
+
+		<h3>Company Name {{ api.companyName }}</h3><br/>
+		Symbol: {{ api.symbol }}</br>
+		Stock Price: ${{ api.latestPrice }}</br>
+		Previous Price: ${{ api.previousClose }}</br>
+		Market Capital: ${{ api.marketCap }}</br>
+		Primary Exchange: {{ api.primaryExchange }}</br>
+		Closing Value: {{ api.close }}</br>
+		Highes Price: {{ api.high }}</br>
+		Lowest Price: {{ api.low }}</br>
+		Changes: {{ api.change }}</br>
+		Latest Time: {{ api.latestTime }}</br>
+		
+
+	{% endif %}
+{% endif %}
+
+{% endblock %}
+
